@@ -1,0 +1,3 @@
+package data
+
+interface Client
