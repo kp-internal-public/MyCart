@@ -10,9 +10,11 @@ interface Admin : Client {
 
     fun addCategory(name: Category) : Boolean
     fun removeCategory(name: Category) : Boolean
+    fun clearCategories()
 
     fun addProduct(product: Product) : Boolean
     fun removeProduct(product: Product) : Boolean
+    fun clearProducts()
 
     fun getAllUsers(): List<Customer>
     fun getUser(name: String): Customer

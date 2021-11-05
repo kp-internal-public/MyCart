@@ -115,6 +115,16 @@ private class PersistentAdminController(private val persistentManager: Manager) 
         persist()
         return true
     }
+
+    override fun clearCategories() {
+        persistentManager.persistent.categories.clear()
+        persistentManager.persist()
+    }
+
+    override fun clearProducts() {
+        persistentManager.persistent.products.clear()
+        persistentManager.persist()
+    }
 }
 
 private class PersistentUserController(private val userData: UserData, private val persistentManager: Manager) : User {

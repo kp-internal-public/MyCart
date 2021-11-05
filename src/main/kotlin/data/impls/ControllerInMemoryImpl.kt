@@ -82,4 +82,12 @@ class InMemory : Controller {
     override fun getUser(name: String): Customer {
         return name to Global.users[name]!!
     }
+
+    override fun clearCategories() {
+        Global.categories.clear()
+    }
+
+    override fun clearProducts() {
+        Global.products.clear()
+    }
 }

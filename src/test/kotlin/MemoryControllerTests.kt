@@ -1,6 +1,7 @@
 import data.Admin
 import data.Controller
 import data.User
+import data.impls.InMemory
 import data.models.Bill
 import data.models.Product
 import data.types.StorageType
@@ -16,6 +17,9 @@ class MemoryControllerTests {
     fun initializeController() {
         adminController = Controller.get(StorageType.IN_MEMORY)
         userController = Controller.get(StorageType.IN_MEMORY)
+
+        adminController.clearCategories()
+        adminController.clearProducts()
     }
 
     @Test
@@ -36,6 +40,7 @@ class MemoryControllerTests {
 
     @Test
     fun `check if products work for in-memory databases`() {
+        adminController.addCategory("tech")
         adminController.addProduct(Product("Xiaomi 9 power", "tech", 12000))
 
         // category is not available so will return false
